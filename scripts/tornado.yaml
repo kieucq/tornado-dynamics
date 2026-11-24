@@ -1,0 +1,42 @@
+# Paths are relative to the directory from which main.py is launched.
+# X inputs are one-array NetCDF files; labels are one-column CSV files.
+seed: 1234
+
+data:
+  input_shape:
+    nx: 64
+    ny: 64
+    nc: 3
+  train_x: data/train_x.nc
+  train_y: data/train_y.csv
+  # If val_x/val_y are omitted, main.py reserves this fraction of training
+  # samples for validation using the configured random seed.
+  validation_fraction: 0.2
+
+model:
+  name: TornadoCNN
+  params:
+    input_channels: 3
+    channels: [32, 64, 128]
+    kernel_size: 3
+    pool_size: 2
+    dropout: 0.15
+    fc_nodes: [128, 64]
+
+training:
+  epochs: 50
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  num_workers: 0
+  save_best: true
+  output_path: checkpoints/tornado_cnn.pt
+  scheduler:
+    enabled: true
+    factor: 0.5
+    patience: 4
+
+inference:
+  threshold: 0.5
+  test_x: data/test_x.nc
+  test_y: data/test_y.csv
