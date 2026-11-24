@@ -90,3 +90,10 @@ GitHub Actions runs on every push to `main` and on pull requests. The workflow i
 - The training script validates input rank, dimensions, finite values, label count, and binary labels.
 - The example does not normalize features automatically. Apply a consistent preprocessing/normalization step to train, validation, and test fields before saving them if needed.
 - For very large arrays, the current implementation loads array data into memory for each launched process. Ensure each rank/node has enough memory.
+
+## Author
+Chanh Kieu, Indiana University Bloomington, email: ckieu[at]iu.edu. 
+
+## Reference
+- Kieu, C., 2026: A note on the anlytical solution for tornado dynamics. arXiv.
+- 
