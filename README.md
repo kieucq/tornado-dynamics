@@ -1,6 +1,8 @@
-# Tornado dynamics CNN classifier
+# Tornado dynamics and ML classifier
 
-This repository includes a configurable PyTorch CNN for binary classification of gridded tornado input fields. It accepts feature batches shaped `[nb, nx, ny, nc]` and labels shaped `[nb]` with values 0 or 1. The network returns one logit per sample; inference converts logits to probabilities with sigmoid.
+This repository includes a configurable PyTorch CNN for binary classification of gridded tornado input fields. It accepts feature batches shaped `[nb, nx, ny, nc]` and labels shaped `[nb]` with values 0 or 1. The network returns one logit per sample; inference converts logits to probabilities with sigmoid. 
+
+This tornado classification model was re-written from our previous workflow that forecasts the probability of tropical cyclone rapid intensification (RI). With the help of OpenAI GPT-5, this new deep learning model design is now optimized for multiple GPU capability, using Pytorch's DDP architecture (work best on IU GPU system so far).       
 
 ## Files
 
